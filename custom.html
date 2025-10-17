@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turma do Gabriel WIKI</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wiki.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #ffeb3b, #ffc107);
+      background-attachment: fixed;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: rgba(0,0,0,0.7);
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+      transform: scale(1.05);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), transparent);
+      animation: fadeIn 2s ease;
+    }
+
+    .hero img {
+      width: 180px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .hero img:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    footer {
+      background-color: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Turma do Gabriel WIKI</h1>
+  </header>
+
+  <nav>
+    <a href="#">Página Inicial</a>
+    <a href="#">Personagens</a>
+    <a href="#">Histórias</a>
+    <a href="#">Jogos</a>
+    <a href="#">Curiosidades</a>
+    <a href="#">Sobre</a>
+  </nav>
+
+  <section class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wiki.png" alt="Logo Turma do Gabriel">
+    <h2>Bem-vindo à Turma do Gabriel WIKI!</h2>
+    <p>A enciclopédia oficial criada pelos fãs da série Turma do Gabriel!  
+    Aqui você encontra tudo sobre os personagens, gibis, episódios, jogos e o universo criado por Gabriel.</p>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <h3>📚 Histórias</h3>
+      <p>Leia resumos e curiosidades sobre cada história, do “Cadê Minha Mochila?” até “Um Passado Passageiro”.</p>
+    </div>
+    <div class="card">
+      <h3>🎮 Jogos</h3>
+      <p>Explore os jogos criados no universo da Turma do Gabriel, como “Tome Chulipa!!” e “Só Antony Salva”.</p>
+    </div>
+    <div class="card">
+      <h3>🎵 Músicas</h3>
+      <p>Conheça as trilhas sonoras compostas por OnionMusics e as canções temáticas dos personagens.</p>
+    </div>
+    <div class="card">
+      <h3>🤓 Curiosidades</h3>
+      <p>Descubra fatos engraçados e segredos dos bastidores sobre os personagens e episódios perdidos.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Turma do Gabriel Wiki — Feito com ❤️ por fãs.
+  </footer>
+</body>
+</html>
