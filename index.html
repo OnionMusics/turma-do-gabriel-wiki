@@ -1,242 +1,172 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Turma do Gabriel — Wiki</title>
-  <meta name="description" content="Wiki não oficial da Turma do Gabriel. Personagens, histórias, jogos, músicas e cronologia." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turma do Gabriel WIKI</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wiki.png">
   <style>
-    /* Reset minimal */
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#f59e0b; --glass: rgba(255,255,255,0.03);
-      --maxw:1100px;
-      color-scheme: dark;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071028 0%,#08122a 60%);color:#e6eef8}
-    .wrap{max-width:var(--maxw);margin:28px auto;padding:24px}
 
-    header{display:flex;align-items:center;gap:18px}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo .mark{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ef4444);display:flex;align-items:center;justify-content:center;font-weight:700}
-    h1{margin:0;font-size:22px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
+    body {
+      background: linear-gradient(120deg, #ffeb3b, #ffc107);
+      background-attachment: fixed;
+      color: #222;
+      overflow-x: hidden;
+    }
 
-    nav{margin-left:auto;display:flex;gap:10px}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
-    nav a.primary{background:var(--glass);color:var(--accent)}
+    header {
+      background-color: rgba(0,0,0,0.7);
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
 
-    .hero{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:22px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:14px;box-shadow: 0 6px 20px rgba(2,6,23,0.6)}
+    header h1 {
+      font-size: 2.3rem;
+      letter-spacing: 1px;
+    }
 
-    .search{display:flex;gap:8px;align-items:center}
-    .search input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    .btn{padding:10px 12px;border-radius:10px;border:0;background:var(--accent);color:#08122a;font-weight:600;cursor:pointer}
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+    }
 
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
-    .char{display:flex;gap:12px;align-items:center}
-    .avatar{width:64px;height:64px;border-radius:10px;background:linear-gradient(180deg,#0b1220,#061020);display:flex;align-items:center;justify-content:center;font-weight:700}
-    .meta{font-size:13px;color:var(--muted)}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
 
-    aside .small{font-size:13px;color:var(--muted);margin-top:6px}
+    nav a:hover {
+      color: #ffc107;
+      transform: scale(1.05);
+    }
 
-    .section-title{display:flex;align-items:center;justify-content:space-between}
-    ul.list{padding:0;margin:12px 0 0;list-style:none}
-    ul.list li{padding:10px 8px;border-radius:8px}
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), transparent);
+      animation: fadeIn 2s ease;
+    }
 
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    .hero img {
+      width: 180px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
 
-    /* Responsive */
-    @media (max-width:980px){.hero{grid-template-columns:1fr} .grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:560px){.grid{grid-template-columns:1fr} .logo .mark{display:none}}
+    .hero img:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
 
-    /* Wiki template visual helpers */
-    .infobox{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-    code.snip{display:block;background:#071428;padding:10px;border-radius:8px;color:#bcd;overflow:auto}
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    footer {
+      background-color: #222;
+      color: #ddd;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">
-        <div class="mark">TG</div>
-        <div>
-          <h1>Turma do Gabriel — Wiki</h1>
-          <p class="lead">Enciclopédia não oficial do universo Turma do Gabriel — personagens, histórias, jogos e curiosidades.</p>
-        </div>
-      </div>
+  <header>
+    <h1>Turma do Gabriel WIKI</h1>
+  </header>
 
-      <nav>
-        <a href="#personagens">Personagens</a>
-        <a href="#historias">Histórias</a>
-        <a href="#jogos">Jogos</a>
-        <a class="primary" href="#criar">Criar página</a>
-      </nav>
-    </header>
+  <nav>
+    <a href="#">Página Inicial</a>
+    <a href="#">Personagens</a>
+    <a href="#">Histórias</a>
+    <a href="#">Jogos</a>
+    <a href="#">Curiosidades</a>
+    <a href="#">Sobre</a>
+  </nav>
 
-    <main class="hero">
-      <section class="card">
-        <h2>Bem-vindo à Wiki</h2>
-        <p class="meta">Esta é a base: tudo aqui foi criado para você editar localmente. Cada item tem um template — copie e cole quando criar páginas novas.</p>
+  <section class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Wiki.png" alt="Logo Turma do Gabriel">
+    <h2>Bem-vindo à Turma do Gabriel WIKI!</h2>
+    <p>A enciclopédia oficial criada pelos fãs da série Turma do Gabriel!  
+    Aqui você encontra tudo sobre os personagens, gibis, episódios, jogos e o universo criado por Gabriel.</p>
+  </section>
 
-        <div style="margin-top:12px">
-          <div class="section-title"><strong>Procurar</strong>
-            <div class="search" style="width:48%">
-              <input id="q" placeholder="Procure por personagem, história ou jogo" oninput="filterCards()" />
-              <button class="btn" onclick="clearSearch()">Limpar</button>
-            </div>
-          </div>
-        </div>
+  <section class="cards">
+    <div class="card">
+      <h3>📚 Histórias</h3>
+      <p>Leia resumos e curiosidades sobre cada história, do “Cadê Minha Mochila?” até “Um Passado Passageiro”.</p>
+    </div>
+    <div class="card">
+      <h3>🎮 Jogos</h3>
+      <p>Explore os jogos criados no universo da Turma do Gabriel, como “Tome Chulipa!!” e “Só Antony Salva”.</p>
+    </div>
+    <div class="card">
+      <h3>🎵 Músicas</h3>
+      <p>Conheça as trilhas sonoras compostas por OnionMusics e as canções temáticas dos personagens.</p>
+    </div>
+    <div class="card">
+      <h3>🤓 Curiosidades</h3>
+      <p>Descubra fatos engraçados e segredos dos bastidores sobre os personagens e episódios perdidos.</p>
+    </div>
+  </section>
 
-        <div class="section-title" style="margin-top:16px"><strong>Personagens em destaque</strong><a href="#personagens">Ver tudo →</a></div>
-
-        <div class="grid" id="cards">
-          <!-- Cards gerados via JS/data abaixo -->
-        </div>
-
-        <div style="margin-top:18px">
-          <h3>Últimas atualizações</h3>
-          <ul class="list" id="updates">
-            <!-- updates via JS -->
-          </ul>
-        </div>
-
-        <div style="margin-top:18px">
-          <h3 id="criar">Modelos de página</h3>
-          <p class="meta">Copie um dos templates abaixo ao criar páginas novas.</p>
-
-          <div style="margin-top:8px" class="infobox">
-            <strong>Template — Personagem</strong>
-            <pre class="snip">&lt;h1&gt;NOME DO PERSONAGEM&lt;/h1&gt;
-&lt;div class="infobox"&gt;
-  &lt;strong&gt;Primeira aparição:&lt;/strong&gt; DATA
-  &lt;br&gt;&lt;strong&gt;Função:&lt;/strong&gt; Ex: Amigo, Antagonista
-&lt;/div&gt;
-&lt;p&gt;Descrição breve do personagem.&lt;/p&gt;
-&lt;h3&gt;Aparições&lt;/h3&gt;
-&lt;ul&gt;&lt;li&gt;Lista de gibis, episódios e jogos&lt;/li&gt;&lt;/ul&gt;
-&lt;h3&gt;Curiosidades&lt;/h3&gt;
-&lt;ul&gt;&lt;li&gt;Fato 1&lt;/li&gt;&lt;/ul&gt;</pre>
-          </div>
-
-          <div style="margin-top:8px" class="infobox">
-            <strong>Template — História / Gibi</strong>
-            <pre class="snip">&lt;h1&gt;TÍTULO DA HISTÓRIA&lt;/h1&gt;
-&lt;div class="infobox"&gt;
-  &lt;strong&gt;Autor:&lt;/strong&gt; SEU NOME
-  &lt;br&gt;&lt;strong&gt;Data de publicação:&lt;/strong&gt; YYYY-MM-DD
-&lt;/div&gt;
-&lt;h3&gt;Sinopse&lt;/h3&gt;
-&lt;p&gt;Resumo curto...&lt;/p&gt;
-&lt;h3&gt;Personagens&lt;/h3&gt;
-&lt;ul&gt;&lt;li&gt;Gabriel&lt;/li&gt;&lt;/ul&gt;</pre>
-          </div>
-        </div>
-
-      </section>
-
-      <aside class="card">
-        <div>
-          <strong>Índice rápido</strong>
-          <p class="small">Use os atalhos abaixo para organizar o conteúdo.</p>
-          <ol style="margin:6px 0 0 18px;color:var(--muted)">
-            <li>Personagens (páginas individuais)</li>
-            <li>Histórias (cronologia / sinopses)</li>
-            <li>Jogos (páginas com sprites e mecânicas)</li>
-            <li>Músicas (letras e fontes dos instrumentais)</li>
-          </ol>
-        </div>
-
-        <div style="margin-top:14px">
-          <strong>Guia rápido — criar nova página</strong>
-          <p class="small">1) Duplique um template, 2) ajuste metadados, 3) salve como <code>personagens/nome.html</code></p>
-        </div>
-
-        <div style="margin-top:12px">
-          <strong>Deploy</strong>
-          <p class="small">Sugestões: GitHub Pages, Netlify ou Vercel. Basta enviar este diretório e apontar o index.html como homepage.</p>
-        </div>
-
-        <div style="margin-top:12px">
-          <strong>Contato</strong>
-          <p class="small">Crie uma página /contato.html com formulário ou apenas um e-mail para admin.</p>
-        </div>
-      </aside>
-    </main>
-
-    <section style="margin-top:18px" class="card">
-      <div class="section-title"><strong id="historias">Histórias recentes</strong><a href="#">Ver tudo →</a></div>
-      <ul class="list" id="storylist"></ul>
-    </section>
-
-    <footer>
-      <small>Feito por OnionMusics — use este template como ponto de partida. Você pode me pedir pra gerar páginas individuais (ex: Gabriel, Cadê Minha Mochila?, Tome Chulipa!!).</small>
-    </footer>
-  </div>
-
-  <script>
-    /* --- Dados iniciais (edite aqui) --- */
-    const data = {
-      characters: [
-        {id:'gabriel',name:'Gabriel',role:'Protagonista',blurb:'Protagonista criativo e inventor, protagonista das histórias.',img:null},
-        {id:'pedro',name:'Pedro',role:'Amigo',blurb:'Melhor amigo de Gabriel; desenhista e confidente.' ,img:null},
-        {id:'enzo',name:'Enzo',role:'Amigo',blurb:'Mais sério, gosta de zoar quando vence.',img:null},
-        {id:'moises',name:'Moisés',role:'Melhor amigo',blurb:'Fortão e companheiro fidel.',img:null},
-        {id:'antony',name:'Antony',role:'Apresentador',blurb:'Apresentador do "Só Antony Salva" e fã de pão com mortadela',img:null}
-      ],
-      updates:[
-        {date:'2025-07-02',title:'Criado template inicial da wiki'},
-        {date:'2025-06-29',title:'Adição: História "Um Passado Passageiro"'}
-      ],
-      stories:[
-        {title:'Cadê Minha Mochila?',slug:'cade-minha-mochila',summary:'Gabriel foi roubado... precisa recuperar materiais escolares.'},
-        {title:'Tome Chulipa!!',slug:'tome-chulipa',summary:'Jogo onde o objetivo é dar a chulipa mais forte possível.'}
-      ]
-    }
-
-    function render(){
-      const cards = document.getElementById('cards');
-      cards.innerHTML = '';
-      data.characters.forEach(c=>{
-        const el = document.createElement('div'); el.className='card char';
-        el.dataset.name = c.name.toLowerCase();
-        el.innerHTML = `<div class="avatar">${c.name.charAt(0)}</div><div><strong>${c.name}</strong><div class="meta">${c.role} • ${c.blurb}</div></div>`;
-        el.onclick = ()=> alert('Abrir página: ' + c.name + '\n(Em breve eu posso gerar a página individual pra você)');
-        cards.appendChild(el);
-      })
-
-      const ups = document.getElementById('updates'); ups.innerHTML = '';
-      data.updates.forEach(u=>{
-        const li = document.createElement('li'); li.innerHTML = `<strong>${u.date}</strong> — ${u.title}`; ups.appendChild(li);
-      })
-
-      const sl = document.getElementById('storylist'); sl.innerHTML = '';
-      data.stories.forEach(s=>{ const li=document.createElement('li'); li.innerHTML = `<strong>${s.title}</strong> — ${s.summary}`; sl.appendChild(li); })
-    }
-    render();
-
-    function filterCards(){
-      const q = document.getElementById('q').value.trim().toLowerCase();
-      document.querySelectorAll('#cards .char').forEach(card=>{
-        const match = !q || card.dataset.name.includes(q);
-        card.style.display = match ? 'flex' : 'none';
-      })
-    }
-    function clearSearch(){document.getElementById('q').value=''; filterCards()}
-
-    /*
-      --- Deploy & edição rápida ---
-      1) Salve este arquivo como index.html.
-      2) Crie pastas: /personagens, /historias, /jogos — e coloque arquivos HTML individuais.
-      3) Para cada personagem, siga o template 'Template — Personagem' deste arquivo.
-      4) Hospede: GitHub Pages (crie repositório -> push -> Settings -> Pages -> branch main / root), ou Netlify/ Vercel (drag & drop).
-
-      Próximos passos que eu posso fazer para você:
-      - Gerar a página completa do Gabriel (com infobox, cronologia de aparições e imagens).
-      - Criar páginas para os jogos com sprites e tabelas de fases.
-      - Preparar uma versão 'exportável' em formato ZIP com estrutura de pastas.
-    */
-  </script>
+  <footer>
+    © 2025 Turma do Gabriel Wiki — Feito com ❤️ por fãs.
+  </footer>
 </body>
 </html>
